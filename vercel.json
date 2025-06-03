@@ -1,14 +1,9 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
+  "framework": "vite",
   "builds": [
     {
-      "src": "client/**/*",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "server/**/*.ts",
+      "src": "package.json",
       "use": "@vercel/node"
     }
   ],
@@ -18,11 +13,11 @@
       "dest": "/server/routes.ts"
     },
     {
-      "handle": "filesystem"
-    },
-    {
       "src": "/(.*)",
       "dest": "/client/index.html"
     }
-  ]
+  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install"
 } 
